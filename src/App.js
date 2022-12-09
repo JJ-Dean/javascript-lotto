@@ -9,7 +9,26 @@ class App {
 
   printPublish(money) {
     const lottoMaker = new LottoMaker(money);
-    Output.printLotto(lottoMaker.lottoObj);
+    let lottoObj = lottoMaker.lottoObj;
+    Output.printLotto(lottoObj);
+    app.getWinningNumber(lottoObj);
+  }
+
+  getWinningNumber(lottoObj) {
+    this.lottoObj = lottoObj;
+    Input.winningNumber(this.numbertoArr);
+  }
+
+  numbertoArr(numbers) {
+    app.winningArr = numbers.split(',').map((number) => {
+      return parseInt(number, 10);
+    });
+    console.log(app.winningArr);
+    app.getBonusNumber();
+  }
+
+  getBonusNumber() {
+    console.log('짜잔');
   }
 }
 
