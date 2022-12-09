@@ -1,12 +1,15 @@
-const Input = require('./UiLogic/Input');
+const Input = require('./Ui/Input');
+const LottoMaker = require('./Domain/LottoMaker');
+const Output = require('./Ui/Output');
 
 class App {
   play() {
-    try {
-      Input.purchase();
-    } catch (err) {
-      Console.print(err);
-    }
+    Input.purchase(this.printPublish);
+  }
+
+  printPublish(money) {
+    const lottoMaker = new LottoMaker(money);
+    Output.printLotto(lottoMaker.lottoObj);
   }
 }
 
