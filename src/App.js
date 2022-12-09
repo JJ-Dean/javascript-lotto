@@ -23,11 +23,14 @@ class App {
     app.winningArr = numbers.split(',').map((number) => {
       return parseInt(number, 10);
     });
-    console.log(app.winningArr);
     app.getBonusNumber();
   }
 
   getBonusNumber() {
+    Input.bonusNumber(this.compare);
+  }
+
+  compare(number) {
     console.log('짜잔');
   }
 }

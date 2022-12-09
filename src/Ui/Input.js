@@ -59,6 +59,27 @@ const Input = {
       if (!isNum.test(number)) throw '숫자를 입력해주세요.';
     });
   },
+
+  bonusNumber(bonus) {
+    Console.readLine('보너스 번호를 입력해 주세요.', (number) => {
+      this.trybonusNumber(number, bonus);
+    });
+  },
+
+  trybonusNumber(number, compare) {
+    try {
+      this.bonusException(number);
+      compare(number);
+    } catch (err) {
+      Console.print('오류 : ' + err);
+      this.bonusNumber(compare);
+    }
+  },
+
+  bonusException(number) {
+    const isNum = /^[1-9]{1}$|^[1-3]{1}[0-9]{1}$|^4{1}[0-5]{1}$/;
+    if (!isNum.test(number)) throw '1부터 45사이의 숫자 한 개만 입력해주세요.';
+  },
 };
 
 module.exports = Input;
