@@ -14,7 +14,11 @@ class Lotto {
 
   // TODO: 추가 기능 구현
 
-  publish() {}
+  compare(publish, bonus) {
+    console.log(publish);
+    console.log(this.#numbers);
+    console.log(bonus);
+  }
 }
 
 module.exports = Lotto;

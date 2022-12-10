@@ -33,12 +33,11 @@ const Input = {
   },
 
   winningExcepttion(number) {
-    const replaced_number = number.replace(/,/g, '');
     const numberArr = number.split(',').map((number) => {
       return parseInt(number, 10);
     });
     this.winningNum = numberArr;
-    this.winningSeperateException(replaced_number);
+    this.winningSeperateException(numberArr);
     this.winningDupException(numberArr);
     this.winningisNumException(numberArr);
   },

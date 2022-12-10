@@ -1,6 +1,7 @@
 const Input = require('./Ui/Input');
 const LottoMaker = require('./Domain/LottoMaker');
 const Output = require('./Ui/Output');
+const Lotto = require('./Lotto');
 
 class App {
   play() {
@@ -20,7 +21,7 @@ class App {
   }
 
   numbertoArr(numbers) {
-    app.winningArr = numbers.split(',').map((number) => {
+    app.winningNum = numbers.split(',').map((number) => {
       return parseInt(number, 10);
     });
     app.getBonusNumber();
@@ -31,7 +32,9 @@ class App {
   }
 
   compare(number) {
-    console.log('짜잔');
+    app.bonusNum = number;
+    const lotto = new Lotto(app.winningNum);
+    lotto.compare(app.lottoObj, app.bonusNum);
   }
 }
 
