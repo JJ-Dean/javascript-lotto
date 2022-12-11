@@ -28,13 +28,18 @@ class App {
   }
 
   getBonusNumber() {
-    Input.bonusNumber(this.compare);
+    Input.bonusNumber(this.saveBonusNumber);
   }
 
-  compare(number) {
+  saveBonusNumber(number) {
     app.bonusNum = number;
-    const lotto = new Lotto(app.winningNum);
-    lotto.compare(app.lottoObj, app.bonusNum);
+    app.compare();
+  }
+
+  compare() {
+    console.log(this);
+    const lotto = new Lotto(this.winningNum);
+    lotto.compare(this.lottoObj, this.bonusNum);
   }
 }
 
