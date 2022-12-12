@@ -22,11 +22,6 @@ class Lotto {
       this.count = 0;
       this.compareWithWinningNum(publish[key], bonus);
     }
-    console.log(winningCount.fisrt);
-    console.log(winningCount.second);
-    console.log(winningCount.third);
-    console.log(winningCount.fourth);
-    console.log(winningCount.fifth);
   }
 
   compareWithWinningNum(publish, bonus) {

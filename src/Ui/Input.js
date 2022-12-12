@@ -59,25 +59,31 @@ const Input = {
     });
   },
 
-  bonusNumber(bonus) {
+  bonusNumber(bonus, winningNum) {
     Console.readLine('보너스 번호를 입력해 주세요.', (number) => {
-      this.trybonusNumber(number, bonus);
+      this.trybonusNumber(number, bonus, winningNum);
     });
   },
 
-  trybonusNumber(number, compare) {
+  trybonusNumber(number, compare, winningNum) {
     try {
-      this.bonusException(number);
+      this.bonusException(number, winningNum);
+      this.bonusDupException(number, winningNum);
       compare(number);
     } catch (err) {
       Console.print('오류 : ' + err);
-      this.bonusNumber(compare);
+      this.bonusNumber(compare, winningNum);
     }
   },
 
-  bonusException(number) {
+  bonusException(number, winningNum) {
     const isNum = /^[1-9]{1}$|^[1-3]{1}[0-9]{1}$|^4{1}[0-5]{1}$/;
     if (!isNum.test(number)) throw '1부터 45사이의 숫자 한 개만 입력해주세요.';
+  },
+
+  bonusDupException(number, winningNum) {
+    if (winningNum.includes(Number(number)))
+      throw '당첨 번호와 중복된 번호는 입력하실 수 없습니다.';
   },
 };
 

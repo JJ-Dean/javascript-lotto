@@ -28,7 +28,7 @@ class App {
   }
 
   getBonusNumber() {
-    Input.bonusNumber(this.saveBonusNumber);
+    Input.bonusNumber(this.saveBonusNumber, this.winningNum);
   }
 
   saveBonusNumber(number) {
@@ -37,7 +37,6 @@ class App {
   }
 
   compare() {
-    console.log(this);
     const lotto = new Lotto(this.winningNum);
     lotto.compare(this.lottoObj, this.bonusNum);
   }
