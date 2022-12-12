@@ -16,9 +16,11 @@ class LottoMaker {
   }
 
   createNumber(lottoArr) {
-    for (let j = 0; j < 6; j++) {
+    while (lottoArr.length < 6) {
       const number = Random.pickNumberInRange(1, 45);
-      lottoArr.push(number);
+      if (!lottoArr.includes(number)) {
+        lottoArr.push(number);
+      }
     }
   }
 }
